@@ -3,7 +3,7 @@
 A single workspace that bundles the LucidVR LucidGloves firmware + STL resources, my Prototype 5 / Quest 2  , and the Unity experience that drives the latest haptic demo,based on the adaptations  I made for my bachelor's dissertation.
 
 ## Repository layout
-- `lucidgloves-main/` – the preserved past snapshot with the upstream LucidVR firmware updates and documentation that I have been building on.
+- `lucidgloves-main/` – the preserved past snapshot with the upstream LucidVR firmware updates and documentation that I have been building on for an ESP32.
 - `questtest1/` – Unity 6.0.0.29f1 project (XR Interaction Toolkit 3.1.1 + XR Hands 1.5.1) with custom scripts that parse the glove serial data, animate the hand models, and play haptic responses. `HapticQuest/` stores the last Windows build exported from that project.
 
 
@@ -17,8 +17,8 @@ A single workspace that bundles the LucidVR LucidGloves firmware + STL resources
 ## Getting started
 1. **Firmware & hardware** – Open `lucidgloves/firmware/lucidgloves-firmware.ino` in Arduino IDE or PlatformIO, adjust the pin/configuration defines for your board, and flash. Print the Prototype 5 STL files under `lucidgloves/hardware/`.
 2. **Unity / Quest experience** – Open `questtest1/questtest1.sln` with Unity 6.0.0.29f1, load the scenes, and ensure the XR settings reference the Oculus/OpenXR loaders that ship with the project. The scripts in `Assets/` handle haptics, parsing the glove serial stream, and interacting with physics objects.
-3. Make sure to setup yhe correct COM PORT from ESP32Bridge
-4. **Optional Windows build** – `questtest1/HapticQuest/` currently contains a Windows player build for demonstration. Delete it if you prefer to keep the repo slim and rebuild the player locally when needed.
+3. Make sure to setup The correct COM PORT from ESP32Bridge
+4. Test first without wearing the glove by pointing your hand towards objects with haptics enabled.
 
 5.Download Meta Horizon Link and connect the headset.(if steamVR is enabled like the original LucidVR  it wont work)
 ## Attribution & licensing
