@@ -12,12 +12,14 @@ A single workspace that bundles the LucidVR LucidGloves firmware + STL resources
 - A USB/serial-equipped controller board (Arduino Nano, ESP32, etc.) wired to the glove. The custom firmware lives under `lucidgloves/firmware/`.
 - Hall effect sensors are part of the original LucidGloves build, but they are optional here because the Quest camera tracking provides the hand pose—install them only if you want redundant sensing.
 - Prototype 5 3D-printed hardware (STL files under `lucidgloves/hardware/Prototype5_BETA/`).
+- The servos need external powersupply.
 
 ## Getting started
 1. **Firmware & hardware** – Open `lucidgloves/firmware/lucidgloves-firmware.ino` in Arduino IDE or PlatformIO, adjust the pin/configuration defines for your board, and flash. Print the Prototype 5 STL files under `lucidgloves/hardware/`.
 2. **Unity / Quest experience** – Open `questtest1/questtest1.sln` with Unity 6.0.0.29f1, load the scenes, and ensure the XR settings reference the Oculus/OpenXR loaders that ship with the project. The scripts in `Assets/` handle haptics, parsing the glove serial stream, and interacting with physics objects.
-3. **Optional Windows build** – `questtest1/HapticQuest/` currently contains a Windows player build for demonstration. Delete it if you prefer to keep the repo slim and rebuild the player locally when needed.
-4.Download Meta Quest app and connect the headset.(if steamVR is enabled like the original LucidVR  it wont work)
+3. Make sure to setup yhe correct COM PORT from ESP32Bridge
+4. **Optional Windows build** – `questtest1/HapticQuest/` currently contains a Windows player build for demonstration. Delete it if you prefer to keep the repo slim and rebuild the player locally when needed.
+4.Download Meta Horizon Link and connect the headset.(if steamVR is enabled like the original LucidVR  it wont work)
 ## Attribution & licensing
 - LucidVR / Lucas_VRTech created the original LucidGloves project. The `lucidgloves/` directory retains their MIT license (`lucidgloves/LICENSE`) and README. Consider that folder a working copy of their work with my Prototype 5 updates layered on top; the upstream snapshot is kept verbatim in `lucidgloves-main/`.
 - This repository (the workspace root) follows MIT-friendly terms that mirror the LucidVR notices so collaborators understand the boundaries between my custom code and the upstream contribution.
